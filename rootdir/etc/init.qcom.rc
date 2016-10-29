@@ -370,6 +370,8 @@ on post-fs-data
     mkdir /data/oemnvitems 0771 radio radio
 
     # Fingerint
+    chmod 0660 /sys/devices/soc/soc:fpc_fpc1020/proximity_state
+    chown system system /sys/devices/soc/soc:fpc_fpc1020/proximity_state
     mkdir /data/misc/fp 0700 system system
     mkdir /data/fpc_images 0770 system system
     mkdir /data/fpc_images/verify 0770 system system
