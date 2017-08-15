@@ -231,15 +231,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 -include vendor/oneplus/oneplus2/BoardConfigVendor.mk
 
 # SDLLVM COMPILER
-ifneq ($(HOST_OS),darwin)
-
-SDCLANG := true
-
-SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
-
-SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
-
-endif
+TARGET_USE_SDCLANG := true
 
 # Custom TC
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-kernel/bin/aarch64-linux-android-
