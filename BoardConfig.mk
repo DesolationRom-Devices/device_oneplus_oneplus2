@@ -167,20 +167,12 @@ USE_SENSOR_MULTI_HAL := true
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
-  # Only enable on user builds
-  # It's annoying to have to flash the whole rom to test things etc.
   ifeq ($(TARGET_BUILD_VARIANT),user)
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
+      DONT_DEXPREOPT_PREBUILTS := true
     endif
-  else
-    # Environment variable
-    ifeq ($(TARGET_FORCE_DEXPREOPT),true)
-      WITH_DEXPREOPT := true
-    else
-      WITH_DEXPREOPT := false
-    endif # TARGET_FORCE_DEXPREOPT = true
-  endif # TARGET_BUILD_VARIANT = user
+  endif
 endif
 
 # Wifi
@@ -229,9 +221,6 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # inherit from the proprietary version
 -include vendor/oneplus/oneplus2/BoardConfigVendor.mk
-
-# SDLLVM COMPILER
-TARGET_USE_SDCLANG := true
 
 # Custom TC
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-kernel/bin/aarch64-linux-android-
