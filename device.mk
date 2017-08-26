@@ -285,11 +285,6 @@ PRODUCT_PACKAGES += \
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
-    librs_jni
-
 # OnePlus Pocket Mode
  PRODUCT_PACKAGES += \
       OneplusPocketMode
